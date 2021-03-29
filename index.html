@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <body bgcolor="beige">
+        <h1 class="title">로또당첨번호</h1>
+        <button id="refresh" style=" margin-left:45%" >
+            다시뽑기</button>
+
+        <div id="lotto" style="text-align: center; border-top-width: 50px;"></div>
+        <div class="container">
+            <div class="face">
+                <div class="brown-spot"></div>
+            </div>
+            <div class="ear"></div>
+            <div class="ear right"></div>
+            <div class="eye"></div>
+            <div class="eye right"></div>
+            <div class="nose"></div>
+            <div class="mouth"></div>
+            <div class="mouth right"></div>
+            <div class="whisker">
+                <div class="whisker left-bottom"></div>
+                <div class="whisker right-top"></div>
+                <div class="whisker right-bottom"></div>
+            </div>
+            <div class="collar">
+                <div class="bell"></div>
+            </div>
+            <div class="cat-body">
+                <div class="green-spot"></div>
+            </div>
+            <div class="arm left">
+                <div class="hand"></div>
+                <div class="coin"></div>
+            </div>
+            <div class="arm right">
+                <div class="hand"></div>
+            </div>
+            <div class="foot"></div>
+            <div class="foot right"></div>
+        </div>
+
+        <script>
+            // var 후보군 = Array(45); // 갯수가 들어가있는 배열 만들때, 보통은 []
+            // forEach vs map
+            // 필.forEach(function(요소, 인덱스) {
+            //     필[인덱스] = 인덱스 + 1;
+            // })
+            // var 후보군 = Array(45).fill().map(function(요소, 인덱스) {
+            //   return 인덱스+1
+            // })
+
+            var 셔플 = [];
+            var 후보군 = Array(45);
+            var 필 = 후보군.fill();
+            필.map(function (요소, 인덱스) {
+                return (필[인덱스] = 인덱스 + 1);
+            });
+            var lotto = document.querySelector('#lotto');
+
+            // 랜덤 배열 돌리기
+            function makeRandom() {
+                // for(var i =0; i < 후보군.length; i +=1) {} 후보군 length가 줄어서 안씀, 몇번 반복문 돌지 알 때 for문, 모를때 while(기준이 계속 바뀔때)
+                while (후보군.length > 0) {
+                    // 랜덤한 자리수에서 한개를 뽑는다, splice
+                    var 이동값 = 후보군.splice(Math.floor(Math.random() * 후보군.length), 1)[0];
+                    셔플.push(이동값);
+                }
+            }
+            makeRandom();
+            // 로또 6자리 픽
+            function lottoPick() {
+                console.log(셔플);
+                var 셔플2 = 셔플;
+                var 보너스 = 셔플[셔플.length - 1];
+                var 당첨숫자들 = 셔플.splice(0, 7);
+                당첨숫자들.sort(function (p, c) {
+                    return p - c;
+                });
+                // console.log(당첨숫자들.sort(function(p,c) { return p - c }), 보너스)
+
+                var ballIdx = 0;
+                var 인터벌 = setInterval(function () {
+                    if (ballIdx < 당첨숫자들.length) {
+                        var span = document.createElement('span');
+                        span.textContent = 당첨숫자들[ballIdx];
+                        lotto.appendChild(span);
+                        ballIdx++;
+                    } else {
+                        clearInterval(인터벌);
+                    }
+                }, 300);
+            }
+            lottoPick();
+
+            document.querySelector('#refresh').addEventListener('click', function () {
+                //셔플 = [];
+                lotto.innerHTML = '';
+                makeRandom();
+                lottoPick();
+            });
+        </script>
+         <!--Copyright (c) 2021 by Katherine Kato (https://codepen.io/kathykato/pen/mmWzPQ)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
+<!--Copyright (c) 2021 by hyelim (https://codepen.io/yoohl/pen/yRWyRo)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
+
+
+
+    </body>
+        </html>
+    
