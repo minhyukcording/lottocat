@@ -4,122 +4,183 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <body bgcolor="beige">
-        <h1 class="title">로또당첨번호</h1>
-        <button id="refresh" style=" margin-left:45%" >
-            다시뽑기</button>
+        <h1>로또당첨번호 예측!</h1>
+<button id="refresh">다시뽑기</button>
+<div id="lotto">
+  
+</div>
 
-        <div id="lotto" style="text-align: center; border-top-width: 50px;"></div>
-        <div class="container">
-            <div class="face">
-                <div class="brown-spot"></div>
-            </div>
-            <div class="ear"></div>
-            <div class="ear right"></div>
-            <div class="eye"></div>
-            <div class="eye right"></div>
-            <div class="nose"></div>
-            <div class="mouth"></div>
-            <div class="mouth right"></div>
-            <div class="whisker">
-                <div class="whisker left-bottom"></div>
-                <div class="whisker right-top"></div>
-                <div class="whisker right-bottom"></div>
-            </div>
-            <div class="collar">
-                <div class="bell"></div>
-            </div>
-            <div class="cat-body">
-                <div class="green-spot"></div>
-            </div>
-            <div class="arm left">
-                <div class="hand"></div>
-                <div class="coin"></div>
-            </div>
-            <div class="arm right">
-                <div class="hand"></div>
-            </div>
-            <div class="foot"></div>
-            <div class="foot right"></div>
-        </div>
 
-        <script>
-            // var 후보군 = Array(45); // 갯수가 들어가있는 배열 만들때, 보통은 []
-            // forEach vs map
-            // 필.forEach(function(요소, 인덱스) {
-            //     필[인덱스] = 인덱스 + 1;
-            // })
-            // var 후보군 = Array(45).fill().map(function(요소, 인덱스) {
-            //   return 인덱스+1
-            // })
+       <h1></h1>
+<p class="info"></p>
+<p class="info"></p>
+<div class="machine">
+		<form name="form1" method="post" action="">
+				<div class="wrap">
+						<input class="reset" type="reset" value=".">
+						<input type="checkbox" name="check" id="check1">
+						<label for="check1"></label>
+						<input type="checkbox" name="check" id="check2">
+						<label for="check2"></label>
+						<input type="checkbox" name="check" id="check3">
+						<label for="check3"></label>
+						<input type="checkbox" name="check" id="check4">
+						<label for="check4"></label>
+						<input type="checkbox" name="check" id="check5">
+						<label for="check5"></label>
+						<input type="checkbox" name="check" id="check6">
+						<label for="check6"></label>
+						<input type="checkbox" name="check" id="check7">
+						<label for="check7"></label>
+						<input type="checkbox" name="check" id="check8">
+						<label for="check8"></label>
+						<input type="checkbox" name="check" id="check9">
+						<label for="check9"></label>
+						<input type="checkbox" name="check" id="check10">
+						<label for="check10"></label>
+						<div class="container">
+								<div class="stage">
+										<ol class="wheel units">
+												<li class="one">&clubs;</li>
+												<li class="two red">&diams;</li>
+												<li class="three red">&hearts;</li>
+												<li class="four">&spades;</li>
+												<li class="five red">&diams;</li>
+												<li class="six">&clubs;</li>
+												<li class="seven red">&hearts;</li>
+												<li class="eight mystery">?</li>
+												<li class="nine">&spades;</li>
+												<li class="ten red">&diams;</li>
+										</ol>
+										<ol class="wheel tens">
+												<li class="one red">&diams;</li>
+												<li class="two red">&diams;</li>
+												<li class="three red">&hearts;</li>
+												<li class="four red">&spades;</li>
+												<li class="five">&clubs;</li>
+												<li class="six">&spades;</li>
+												<li class="seven red">&hearts;</li>
+												<li class="eight red">&diams;</li>
+												<li class="nine">&clubs;</li>
+												<li class="ten mystery">?</li>
+										</ol>
+										<ol class="wheel hundreds">
+												<li class="one">&spades;</li>
+												<li class="two">&clubs;</li>
+												<li class="three">&spades;</li>
+												<li class="four">&clubs;</li>
+												<li class="five red">&hearts;</li>
+												<li class="six red">&diams;</li>
+												<li class="seven mystery">?</li>
+												<li class="eight">&spades;</li>
+												<li class="nine red">&diams;</li>
+												<li class="ten red">&hearts;</li>
+										</ol>
+								</div>
+						</div>
+						<div class="jackpot"><strong>Jackpot</strong><b class="circle"></b><span class="card card1 red"><b>&diams;</b><span class="suit">A &diams;</span></span><span class="card card2"><b>&clubs;</b><span class="suit">A &clubs;</span></span><span class="card card3 red"><b>&hearts;</b><span class="suit">A &hearts;</span></span></div>
+						<div class="cogs"><b></b><b></b></div>
+						<div class="main">
+								<div class="main-inner"></div>
+						</div>
+						<div class="lever">
+								<div class="pull">
+										<div class="ball"></div>
+										<div class="stem"></div>
+								</div>
+								<div class="cog1"></div>
+								<div class="cog2"></div>
+						</div>
+						<!-- end lever --> 
+				</div>
+		</form>
+</div>
+<!-- end machine -->
 
-            var 셔플 = [];
-            var 후보군 = Array(45);
-            var 필 = 후보군.fill();
-            필.map(function (요소, 인덱스) {
-                return (필[인덱스] = 인덱스 + 1);
-            });
-            var lotto = document.querySelector('#lotto');
+<div class="effect">
+		<div class="b"></div>
+		<div class="b b2"></div>
+		<div class="b"></div>
+		<div class="b b2"></div>
+		<div class="b"></div>
+		<div class="b b2"></div>
+		<div class="b"></div>
+		<div class="b b2"></div>
+		<div class="b"></div>
+		<div class="b b2"></div>
+		<div class="b"></div>
+		<div class="b b2"></div>
+		<div class="b"></div>
+</div>
+<script>
+        // var 후보군 = Array(45); // 갯수가 들어가있는 배열 만들때, 보통은 []
+// forEach vs map
+// 필.forEach(function(요소, 인덱스) {
+//     필[인덱스] = 인덱스 + 1;
+// })
+// var 후보군 = Array(45).fill().map(function(요소, 인덱스) {
+//   return 인덱스+1
+// })
 
-            // 랜덤 배열 돌리기
-            function makeRandom() {
-                // for(var i =0; i < 후보군.length; i +=1) {} 후보군 length가 줄어서 안씀, 몇번 반복문 돌지 알 때 for문, 모를때 while(기준이 계속 바뀔때)
-                while (후보군.length > 0) {
-                    // 랜덤한 자리수에서 한개를 뽑는다, splice
-                    var 이동값 = 후보군.splice(Math.floor(Math.random() * 후보군.length), 1)[0];
-                    셔플.push(이동값);
-                }
-            }
-            makeRandom();
-            // 로또 6자리 픽
-            function lottoPick() {
-                console.log(셔플);
-                var 셔플2 = 셔플;
-                var 보너스 = 셔플[셔플.length - 1];
-                var 당첨숫자들 = 셔플.splice(0, 7);
-                당첨숫자들.sort(function (p, c) {
-                    return p - c;
-                });
-                // console.log(당첨숫자들.sort(function(p,c) { return p - c }), 보너스)
+var 셔플 = [];
+var 후보군 = Array(45);
+var 필 = 후보군.fill();
+필.map(function(요소, 인덱스) {
+  return 필[인덱스] = 인덱스 +1;  
+})
+var lotto = document.querySelector('#lotto');
 
-                var ballIdx = 0;
-                var 인터벌 = setInterval(function () {
-                    if (ballIdx < 당첨숫자들.length) {
-                        var span = document.createElement('span');
-                        span.textContent = 당첨숫자들[ballIdx];
-                        lotto.appendChild(span);
-                        ballIdx++;
-                    } else {
-                        clearInterval(인터벌);
-                    }
-                }, 300);
-            }
-            lottoPick();
+// 랜덤 배열 돌리기 
+function makeRandom() {
+  // for(var i =0; i < 후보군.length; i +=1) {} 후보군 length가 줄어서 안씀, 몇번 반복문 돌지 알 때 for문, 모를때 while(기준이 계속 바뀔때)
+   while (후보군.length > 0 ) {
+    // 랜덤한 자리수에서 한개를 뽑는다, splice
+    var 이동값 = 후보군.splice(Math.floor(Math.random() * 후보군.length), 1)[0];
+    셔플.push(이동값)
+  }
+}
+makeRandom()
+// 로또 6자리 픽
+function lottoPick() {
+  console.log(셔플)
+  var 셔플2 = 셔플;
+  var 보너스 = 셔플[셔플.length - 1]
+  var 당첨숫자들 = 셔플.splice(0, 7);
+  당첨숫자들.sort(function(p,c) { return p - c })
+  // console.log(당첨숫자들.sort(function(p,c) { return p - c }), 보너스)
+  
+  var ballIdx = 0;
+  var 인터벌 = setInterval(function () {
+    if( ballIdx < 당첨숫자들.length) {
+      var span = document.createElement('span');
+      span.textContent = 당첨숫자들[ballIdx];
+      lotto.appendChild(span)
+      ballIdx ++
+    } else {
+      clearInterval(인터벌)
+    }
+  }, 300)
+}
+lottoPick()
 
-            document.querySelector('#refresh').addEventListener('click', function () {
-                //셔플 = [];
-                lotto.innerHTML = '';
-                makeRandom();
-                lottoPick();
-            });
-        </script>
-         <!--Copyright (c) 2021 by Katherine Kato (https://codepen.io/kathykato/pen/mmWzPQ)
+
+document.querySelector('#refresh').addEventListener('click', function() {
+  //셔플 = [];
+  lotto.innerHTML = ''
+  makeRandom()
+  lottoPick()
+})
+
+</script>
+<!--Copyright (c) 2021 by Paul O'Brien (https://codepen.io/paulobrien/pen/vKCqa)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
-<!--Copyright (c) 2021 by hyelim (https://codepen.io/yoohl/pen/yRWyRo)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.-->
 
 
+</body>
 
-    </body>
-        </html>
-    
+    </html>
